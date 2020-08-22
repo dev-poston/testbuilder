@@ -17,6 +17,12 @@ var detectNetwork = function(cardNumber) {
   if (cardNumber.slice(0, 2) === '34' || cardNumber.slice(0, 2) === '37' && cardNumber.length === 15) {
     return 'American Express';
   }
+  if (cardNumber.slice(0, 1) === '4' && (cardNumber.length === 13 || cardNumber.length === 16 || cardNumber.length === 19)) {
+    return 'Visa';
+  }
+  if (Number(cardNumber.slice(0, 2)) >= 51 && Number(cardNumber.slice(0, 2)) <= 55 && cardNumber.length === 16) {
+    return 'MasterCard';
+  }
 
 //output is a string - what cc network the num belongs
 };
