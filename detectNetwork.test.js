@@ -165,4 +165,8 @@ describe('Maestro', function() {
     detectNetwork('5018123456789012').should.equal('Maestro');
   });
 
+  it('has a prefix of 6304 and a length of 19', function() {
+    detectNetwork('6304123456789012345').should.equal('Maestro');
+  });
+
 });
