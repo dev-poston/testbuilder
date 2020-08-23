@@ -23,7 +23,12 @@ var detectNetwork = function(cardNumber) {
   if (Number(cardNumber.slice(0, 2)) >= 51 && Number(cardNumber.slice(0, 2)) <= 55 && cardNumber.length === 16) {
     return 'MasterCard';
   }
-
+  if (cardNumber.slice(0, 4) === '6011' || cardNumber.slice(0, 2) === '65' || (Number(cardNumber.slice(0, 3)) >= 644 && Number(cardNumber.slice(0, 3)) <= 649) && (cardNumber.length === 16 || cardNumber.length === 19)) {
+    return 'Discover';
+  }
+  if ((cardNumber.slice(0, 4) === '5018' || '5020' || '5038' || '6304') && (cardNumber.length >= 12 && cardNumber.length <= 19)) {
+    return 'Maestro';
+  }
 //output is a string - what cc network the num belongs
 };
 

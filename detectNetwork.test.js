@@ -153,8 +153,16 @@ describe('Discover', function() {
     detectNetwork('6011123456789012345').should.equal('Discover');
   });
 
+
+
 });
 
 describe('Maestro', function() {
   // Write full test coverage for the Maestro card
+  var should = chai.should();
+
+  it('has a prefix of 5018 and a length of 16', function() {
+    detectNetwork('5018123456789012').should.equal('Maestro');
+  });
+
 });
