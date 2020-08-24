@@ -80,6 +80,71 @@ describe('American Express', function() {
 
 });
 
+describe('Switch', function() {
+
+  var should = chai.should();
+
+  var cardNum1 = '4903456789012345';
+  var cardNum2 = '4905456789012345';
+  var cardNum3 = '4911456789012345';
+  var cardNum4 = '4936456789012345';
+  var cardNum5 = '5641826789012345';
+  var cardNum6 = '6331106789012345';
+  var cardNum7 = '6333456789012345';
+  var cardNum8 = '6759456789012345';
+
+  for (var length = 16; length <= 19; length++) {
+    (function(length) {
+
+      if (length !== 17) {
+
+        it('has a prefix of 4903 and a length of ' + length + '', function() {
+          detectNetwork(cardNum1).should.equal('Switch');
+          cardNum1 += '1';
+        });
+
+        it('has a prefix of 4905 and a length of ' + length + '', function() {
+          detectNetwork(cardNum2).should.equal('Switch');
+          cardNum2 += '1';
+        });
+
+        it('has a prefix of 4911 and a length of ' + length + '', function() {
+          detectNetwork(cardNum3).should.equal('Switch');
+          cardNum3 += '1';
+        });
+
+        it('has a prefix of 4936 and a length of ' + length + '', function() {
+          detectNetwork(cardNum4).should.equal('Switch');
+          cardNum4 += '1';
+        });
+
+        it('has a prefix of 564182 and a length of ' + length + '', function() {
+          detectNetwork(cardNum5).should.equal('Switch');
+          cardNum5 += '1';
+        });
+
+        it('has a prefix of 633110 and a length of ' + length + '', function() {
+          detectNetwork(cardNum6).should.equal('Switch');
+          cardNum6 += '1';
+        });
+
+        it('has a prefix of 6333 and a length of ' + length + '', function() {
+          detectNetwork(cardNum7).should.equal('Switch');
+          cardNum7 += '1';
+        });
+
+        it('has a prefix of 6759 and a length of ' + length + '', function() {
+          detectNetwork(cardNum8).should.equal('Switch');
+          cardNum8 += '1';
+        });
+      }
+
+
+    })(length);
+  }
+
+});
+
 describe('Visa', function() {
   // Chai is an entire library of helper functions for tests!
   // Chai provides an assert that acts the same as our previous assert.
@@ -248,19 +313,19 @@ describe('China UnionPay', function() {
     (function(prefix) {
 
       it('has a prefix of ' + prefix + ' and a length of 16', function() {
-        detectNetwork(prefix + '1234567890').should.equal('China UnionPay');
-      });
-
-      it('has a prefix of ' + prefix + ' and a length of 17', function() {
-        detectNetwork(prefix + '12345678901').should.equal('China UnionPay');
-      });
-
-      it('has a prefix of ' + prefix + ' and a length of 18', function() {
         detectNetwork(prefix + '123456789012').should.equal('China UnionPay');
       });
 
-      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+      it('has a prefix of ' + prefix + ' and a length of 17', function() {
         detectNetwork(prefix + '1234567890123').should.equal('China UnionPay');
+      });
+
+      it('has a prefix of ' + prefix + ' and a length of 18', function() {
+        detectNetwork(prefix + '12345678901234').should.equal('China UnionPay');
+      });
+
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        detectNetwork(prefix + '123456789012345').should.equal('China UnionPay');
       });
 
     })(prefix);
@@ -289,3 +354,4 @@ describe('China UnionPay', function() {
   }
 
 });
+
