@@ -29,10 +29,11 @@ var detectNetwork = function(cardNumber) {
   if ((cardNumber.slice(0, 4) === '5018' || cardNumber.slice(0, 4) === '5020' || cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') && (cardNumber.length >= 12 && cardNumber.length <= 19)) {
     return 'Maestro';
   }
-  if (((Number(cardNumber.slice(0, 6)) >= 622126 && Number(cardNumber.slice(0, 6)) <= 622925) || (cardNumber.slice(0, 3) === '624' || '625' || '626') ||
+  if (((Number(cardNumber.slice(0, 6)) >= 622126 && Number(cardNumber.slice(0, 6)) <= 622925) || (cardNumber.slice(0, 3) === '624' || cardNumber.slice(0, 3) === '625' || cardNumber.slice(0, 3) === '626') ||
   (Number(cardNumber.slice(0, 4)) >= 6282 && Number(cardNumber.slice(0, 4)) <= 6288)) && (cardNumber.length === 16 || 17 || 18 || 19)) {
     return 'China UnionPay';
   }
+ 
 //output is a string - what cc network the num belongs
 };
 
