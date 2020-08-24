@@ -14,10 +14,10 @@ var detectNetwork = function(cardNumber) {
   if (cardNumber.slice(0, 2) === '38' || cardNumber.slice(0, 2) === '39' && cardNumber.length === 14) {
     return 'Diner\'s Club';
   }
-  if (cardNumber.slice(0, 2) === '34' || cardNumber.slice(0, 2) === '37' && cardNumber.length === 15) {
+  if ((cardNumber.slice(0, 2) === '34' || cardNumber.slice(0, 2) === '37') && cardNumber.length === 15) {
     return 'American Express';
   }
-  if (cardNumber.slice(0, 1) === '4' && (cardNumber.length === 13 || 16 || 19)) {
+  if ((cardNumber.slice(0, 1) === '4') && (cardNumber.length === 13 || 16 || 19)) {
     return 'Visa';
   }
   if (Number(cardNumber.slice(0, 2)) >= 51 && Number(cardNumber.slice(0, 2)) <= 55 && cardNumber.length === 16) {
@@ -26,10 +26,11 @@ var detectNetwork = function(cardNumber) {
   if (cardNumber.slice(0, 4) === '6011' || cardNumber.slice(0, 2) === '65' || (Number(cardNumber.slice(0, 3)) >= 644 && Number(cardNumber.slice(0, 3)) <= 649) && (cardNumber.length === 16 || 19)) {
     return 'Discover';
   }
-  if ((cardNumber.slice(0, 4) === '5018' || '5020' || '5038' || '6304') && (cardNumber.length >= 12 && cardNumber.length <= 19)) {
+  if ((cardNumber.slice(0, 4) === '5018' || cardNumber.slice(0, 4) === '5020' || cardNumber.slice(0, 4) === '5038' || cardNumber.slice(0, 4) === '6304') && (cardNumber.length >= 12 && cardNumber.length <= 19)) {
     return 'Maestro';
   }
-  if (((Number(cardNumber.slice(0, 6)) >= 622126 && Number(cardNumber.slice(0, 6)) <= 622925) || (cardNumber.slice(0, 3) === '624' || '625' || '626') || (Number(cardNumber.slice(0, 4)) >= 6282 && Number(cardNumber.slice(0, 4)) <= 6288)) && (cardNumber.length === 16 || 17 || 18 || 19)) {
+  if (((Number(cardNumber.slice(0, 6)) >= 622126 && Number(cardNumber.slice(0, 6)) <= 622925) || (cardNumber.slice(0, 3) === '624' || '625' || '626') ||
+  (Number(cardNumber.slice(0, 4)) >= 6282 && Number(cardNumber.slice(0, 4)) <= 6288)) && (cardNumber.length === 16 || 17 || 18 || 19)) {
     return 'China UnionPay';
   }
 //output is a string - what cc network the num belongs

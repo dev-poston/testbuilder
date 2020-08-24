@@ -219,6 +219,7 @@ describe('China UnionPay', function() {
   // Implement these tests (and others) and make them pass!
   var should = chai.should();
 
+
   for (var prefix = 622126; prefix <= 622925; prefix++) {
     (function(prefix) {
 
