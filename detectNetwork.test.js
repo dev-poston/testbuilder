@@ -179,6 +179,8 @@ describe('Discover', function() {
 describe('Maestro', function() {
   // Write full test coverage for the Maestro card
 
+  var should = chai.should();
+
   var cardNum1 = '501811234567';
   var cardNum2 = '502011234567';
   var cardNum3 = '503811234567';
@@ -208,6 +210,35 @@ describe('Maestro', function() {
       });
 
     })(length);
+  }
+
+});
+
+describe('China UnionPay', function() {
+  // Tests without a function will be marked as "pending" and not run
+  // Implement these tests (and others) and make them pass!
+  var should = chai.should();
+
+  for (var prefix = 622126; prefix <= 622925; prefix++) {
+    (function(prefix) {
+
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        detectNetwork(prefix + '1234567890').should.equal('China UnionPay');
+      });
+
+      it('has a prefix of ' + prefix + ' and a length of 17', function() {
+        detectNetwork(prefix + '12345678901').should.equal('China UnionPay');
+      });
+
+      it('has a prefix of ' + prefix + ' and a length of 18', function() {
+        detectNetwork(prefix + '123456789012').should.equal('China UnionPay');
+      });
+
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        detectNetwork(prefix + '1234567890123').should.equal('China UnionPay');
+      });
+
+    })(prefix);
   }
 
 });
