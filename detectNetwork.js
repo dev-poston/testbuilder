@@ -7,7 +7,6 @@
 //   1. The first few numbers (called the prefix)
 //   2. The number of digits in the number (called the length)
 
-
 var detectNetwork = function(cardNumber) {
 //input is a string - cc num
 
@@ -38,7 +37,6 @@ var detectNetwork = function(cardNumber) {
 
 //output is a string - what cc network the num belongs
 };
-
 
 // Note: `cardNumber` will always be a string
 

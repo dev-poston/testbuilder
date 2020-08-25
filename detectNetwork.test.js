@@ -84,65 +84,52 @@ describe('Switch', function() {
 
   var should = chai.should();
 
-  var cardNum1 = '4903456789012345';
-  var cardNum2 = '4905456789012345';
-  var cardNum3 = '4911456789012345';
-  var cardNum4 = '4936456789012345';
-  var cardNum5 = '5641826789012345';
-  var cardNum6 = '6331106789012345';
-  var cardNum7 = '6333456789012345';
-  var cardNum8 = '6759456789012345';
+  var fourDigPrefix = '456789012345';
+  var sixDigPrefix = '6789012345';
 
   for (var length = 16; length <= 19; length++) {
-    (function(length) {
+    (function(length, fourDigPrefix, sixDigPrefix) {
 
       if (length !== 17) {
-
+                                      
         it('has a prefix of 4903 and a length of ' + length + '', function() {
-          detectNetwork(cardNum1).should.equal('Switch');
-          cardNum1 += '1';
+          detectNetwork('4903' + fourDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 4905 and a length of ' + length + '', function() {
-          detectNetwork(cardNum2).should.equal('Switch');
-          cardNum2 += '1';
+          detectNetwork('4905' + fourDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 4911 and a length of ' + length + '', function() {
-          detectNetwork(cardNum3).should.equal('Switch');
-          cardNum3 += '1';
+          detectNetwork('4911' + fourDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 4936 and a length of ' + length + '', function() {
-          detectNetwork(cardNum4).should.equal('Switch');
-          cardNum4 += '1';
+          detectNetwork('4936' + fourDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 564182 and a length of ' + length + '', function() {
-          detectNetwork(cardNum5).should.equal('Switch');
-          cardNum5 += '1';
+          detectNetwork('564182' + sixDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 633110 and a length of ' + length + '', function() {
-          detectNetwork(cardNum6).should.equal('Switch');
-          cardNum6 += '1';
+          detectNetwork('633110' + sixDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 6333 and a length of ' + length + '', function() {
-          detectNetwork(cardNum7).should.equal('Switch');
-          cardNum7 += '1';
+          detectNetwork('6333' + fourDigPrefix).should.equal('Switch');
         });
 
         it('has a prefix of 6759 and a length of ' + length + '', function() {
-          detectNetwork(cardNum8).should.equal('Switch');
-          cardNum8 += '1';
+          detectNetwork('6759' + fourDigPrefix).should.equal('Switch');
         });
       }
 
+    })(length, fourDigPrefix, sixDigPrefix);
 
-    })(length);
+    fourDigPrefix += '1';
+    sixDigPrefix += '1';
   }
-
 });
 
 describe('Visa', function() {
@@ -354,4 +341,3 @@ describe('China UnionPay', function() {
   }
 
 });
-
